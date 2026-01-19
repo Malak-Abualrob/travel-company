@@ -1,0 +1,28 @@
+﻿@model flightbooking.Models.trip
+
+<h2>add new flight</h2>
+
+<form asp-action="Create" method="post">
+    <label>from city:</label>
+    <input asp-for="FromCity" required />
+
+    <label>to city:</label>
+    <input asp-for="ToCity" required />
+
+    <label>leave date:</label>
+    <input asp-for="DepartureDateTime" type="datetime-local" required />
+
+    <label>arrival date:</label>
+    <input asp-for="ArrivalDateTime" type="datetime-local" required />
+
+    <label>price:</label>
+    <input asp-for="Price" type="number" step="0.01" required />
+
+    <label>available flights:</label>
+    <input asp-for="AvailableSeats" type="number" required />
+
+    <label>Airline Id:</label>
+    <input asp-for="AirlineId" type="number" required />
+
+    <button type="submit">add flights</button>
+</form>

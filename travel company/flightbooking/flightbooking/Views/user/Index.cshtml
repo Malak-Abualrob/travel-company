@@ -1,0 +1,21 @@
+﻿@model IEnumerable<flightbooking.Models.user>
+
+<h2>list of users</h2>
+
+<table border="1">
+    <tr>
+        <th>name</th>
+        <th>اemail</th>
+        <th>phone number</th>
+        <th>role</th>
+    </tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.Name</td>
+            <td>@user.Email</td>
+            <td>@user.PhoneNumber</td>
+            <td>@user.Role</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,15 @@
+﻿@model flightbooking.Models.trip
+
+<h2>flight deatils</h2>
+
+<p><strong>from:</strong> @Model.FromCity</p>
+<p><strong>to:</strong> @Model.ToCity</p>
+<p><strong>leaving date:</strong> @Model.DepartureDateTime.ToString("dd/MM/yyyy HH:mm")</p>
+<p><strong>arrival date:</strong> @Model.ArrivalDateTime.ToString("dd/MM/yyyy HH:mm")</p>
+<p><strong>price:</strong> @Model.Price.ToString("C")</p>
+<p><strong>airlines:</strong> @Model.Airline?.Name</p>
+
+<form asp-controller="Booking" asp-action="Create" method="get">
+    <input type="hidden" name="tripId" value="@Model.TripId" />
+    <button type="submit">book this flight</button>
+</form>

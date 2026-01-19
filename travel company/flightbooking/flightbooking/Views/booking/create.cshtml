@@ -1,0 +1,21 @@
+﻿@model flightbooking.Models.trip
+
+<h2>book flight</h2>
+
+<p><strong>from:</strong> @Model.FromCity</p>
+<p><strong>to:</strong> @Model.ToCity</p>
+<p><strong>leave date:</strong> @Model.DepartureDateTime.ToString("dd/MM/yyyy HH:mm")</p>
+<p><strong>price per seat:</strong> @Model.Price.ToString("C")</p>
+<p><strong>available seats:</strong> @Model.AvailableSeats</p>
+
+<form asp-action="Create" method="post">
+    <input type="hidden" name="tripId" value="@Model.TripId" />
+    <label>number of seats:</label>
+    <input type="number" name="seatsBooked" min="1" max="@Model.AvailableSeats" required />
+    <button type="submit">confirm</button>
+</form>
+
+@if (ViewBag.Error != null)
+{
+    <p style="color:red">@ViewBag.Error</p>
+}

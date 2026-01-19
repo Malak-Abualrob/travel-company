@@ -1,0 +1,24 @@
+﻿@model flightbooking.Models.user
+
+<h2>sign a new user</h2>
+
+<form asp-action="SignUp" method="post">
+    <label>name:</label>
+    <input asp-for="Name" required />
+
+    <label>email:</label>
+    <input asp-for="Email" type="email" required />
+
+    <label>password:</label>
+    <input asp-for="Password" type="password" required />
+
+    <label>phonenumber:</label>
+    <input asp-for="phonenum" />
+
+    <button type="submit"> sign up</button>
+</form>
+
+@if (ViewBag.Error != null)
+{
+    <p style="color:red">@ViewBag.Error</p>
+}

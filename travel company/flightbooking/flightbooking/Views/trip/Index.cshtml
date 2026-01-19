@@ -1,0 +1,37 @@
+﻿@model IEnumerable<flightbooking.Models.trip>
+
+<h2>available flights</h2>
+
+<form method="get" asp-action="Index">
+    <label>from city:</label>
+    <input type="text" name="fromCity" value="@Context.Request.Query["fromCity"]" />
+    <label>to city:</label>
+    <input type="text" name="toCity" value="@Context.Request.Query["toCity"]" />
+    <button type="submit">search</button>
+</form>
+
+<table border="1">
+    <tr>
+        <th>from</th>
+        <th>to</th>
+        <th>leaving date</th>
+        <th>arrival date</th>
+        <th>price</th>
+        <th>airlines</th>
+        <th>deatils</th>
+    </tr>
+    @foreach (var trip in Model)
+    {
+        <tr>
+            <td>@trip.FromCity</td>
+            <td>@trip.ToCity</td>
+            <td>@trip.DepartureDateTime.ToString("dd/MM/yyyy HH:mm")</td>
+            <td>@trip.ArrivalDateTime.ToString("dd/MM/yyyy HH:mm")</td>
+            <td>@trip.Price.ToString("C")</td>
+            <td>@trip.Airline?.Name</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@trip.TripId">show deatils</a>
+            </td>
+        </tr>
+    }
+</table>

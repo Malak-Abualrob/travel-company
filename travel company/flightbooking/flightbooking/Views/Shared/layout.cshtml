@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Tourism Project</title>
+</head>
+<body>
+
+    <nav>
+        <a asp-controller="trip" asp-action="Index">الرحلات</a> |
+
+        @if (Context.Session.GetInt32("UserId") == null)
+        {
+        <a asp-controller="user" asp-action="SignIn">sign in</a>
+               
+                <a asp-controller="user" asp-action="SignUp">sign up</a>
+                }
+        else
+        {
+        <a asp-controller="booking" asp-action="MyBookings">my resrvations</a>
+               
+                <a asp-controller="user" asp-action="SignOut">sign out</a>
+                }
+    </nav>
+
+    <hr />
+
+    @RenderBody()
+
+</body>
+</html>
